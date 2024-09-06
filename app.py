@@ -8,4 +8,4 @@ pickle_fil = "73.4.pkl"  # Path to the pickle file
 
 
 #st.title(output.item())
-st.title("hello"
+st.title("hello")
