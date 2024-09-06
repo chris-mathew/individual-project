@@ -3,6 +3,7 @@ import torch
 from sklearn.metrics import pairwise_distances
 from scipy.sparse.linalg import eigsh
 import numpy as np
+import streamlit as st
 
 def diffusion_map(correlation_matrix, n_components=3, sigma=1.2):
     # Construct the affinity matrix directly from the correlation matrix
