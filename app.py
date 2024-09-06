@@ -4,7 +4,7 @@ import pandas as pd
 import torch
 
 # Load the saved model
-loaded_net = torch.load("C:/Users/chris/Desktop/ADData/SavedModels/entire_model_best_rmse_0.1234.pt")
+loaded_net = torch.load("entire_model.pt")
 loaded_net.eval()  # Set to evaluation mode
 
 # Load the pandas DataFrame from the pickle file
