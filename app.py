@@ -8,7 +8,7 @@ loaded_net = torch.load("C:/Users/chris/Desktop/ADData/SavedModels/entire_model_
 loaded_net.eval()  # Set to evaluation mode
 
 # Load the pandas DataFrame from the pickle file
-pickle_file = r"C:\Users\chris\Desktop\ADData\CorrDATA\AD\002_S_5018\73.4.pkl"  # Path to the pickle file
+pickle_file = "73.4.pkl"  # Path to the pickle file
 df = pd.read_pickle(pickle_file)
 
 # Assuming your DataFrame has the correct structure expected by the model (for example, 2D or 3D array):
