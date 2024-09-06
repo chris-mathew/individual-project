@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 streamlit
 torch==2.4.0
+=======
+streamlit==1.30.0
+>>>>>>> a0b3c216eb942b975993b4cc67bce80ba4a68455
 numpy>=1.22.0
 pandas==2.2.2
 scikit-learn
