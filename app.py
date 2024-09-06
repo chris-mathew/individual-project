@@ -25,8 +25,8 @@ def diffusion_map(correlation_matrix, n_components=3, sigma=1.2):
 
 
 # Load the saved model
-loaded_net = torch.load("entire_model.pt")
-loaded_net.eval()  # Set to evaluation mode
+#loaded_net = torch.load("entire_model.pt")
+#loaded_net.eval()  # Set to evaluation mode
 
 # Load the pandas DataFrame from the pickle file
 pickle_file = "73.4.pkl"  # Path to the pickle file
@@ -48,11 +48,11 @@ data_tensor = data_tensor.unsqueeze(0).unsqueeze(0)
 print(data_tensor.shape)
 
 # Feed the tensor to the model
-with torch.no_grad():  # Turn off gradient calculation since we're doing inference
-    output = loaded_net(data_tensor)
+#with torch.no_grad():  # Turn off gradient calculation since we're doing inference
+ #   output = loaded_net(data_tensor)
 
 # Print or process the output
-print("Model output:", output.item())
-
+#print("Model output:", output.item())
+output = 2
 
 st.title(output.item())
