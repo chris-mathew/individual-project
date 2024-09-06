@@ -1,6 +1,4 @@
 streamlit==1.30.0
-torch==2.4.0+cpu
-torchvision==0.17.1+cpu
-torchaudio==2.4.0+cpu
+torch==2.4.0
 numpy>=1.22.0
 pandas==2.2.2
