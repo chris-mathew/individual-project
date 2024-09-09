@@ -28,14 +28,13 @@ st.title('Diffusion Map Enchanced BC-GCN')
 tab1, tab2 = st.tabs(["Prediction Model", "Nerual Map"])
 
 with tab1:
-    st.write(
-        "This uses the diffusion map enabled BC-GCN model to estimate and the base BC-GCN model to classify Alzheimer's Disease. Please note that the classification model isn't always stable and the input must be a 112x112 corrolation matrix due to the preprocessing requiring external programs. **It is recommended that the example file be used.**")
+    st.write("This uses the diffusion map enabled BC-GCN model to estimate and the base BC-GCN model to classify Alzheimer's Disease. Please note that the classification model isn't stable and the input must be a 112x112 corrolation matrix due to the preprocessing requiring external programs. **It is recommended that the example file be used.**")
     # Load the saved model
 
-    pickle_file = "75.pkl"  # Path to the pickle file
+    pickle_file = "75.9.pkl"  # Path to the pickle file
 
     uploaded_file = st.file_uploader("Choose a file", type=["pkl"])
-    checkbox_state = st.checkbox("Use Example File (Age: 75, State: AD)")
+    checkbox_state = st.checkbox("Use Example File (Age: 75.9, State: AD, Subject ID (ADNI Dataset): 018_S_4733)")
 
     # Check the state of the checkbox
     if checkbox_state:
@@ -64,15 +63,18 @@ with tab1:
         ort_session_acc = ort.InferenceSession("model_new_accuracy.onnx")
         input_feed_acc = {'input.1': input_data_acc}
         outputs_acc = ort_session_acc.run(None, input_feed_acc)
-        outputs_acc = np.argmax(outputs_acc[0][0])
+        outputs_acc = np.delete(outputs_acc[0][0],1)
+        outputs_acc[0] = outputs_acc[0]/10
+        outputs_acc = np.argmax(outputs_acc)
 
 
-        dic = ['Mild Cognitive Impairment', 'Cognitively Normal', "Alzheimer's Disease"]
+        dic = ['Mild Cognitive Impairment or Cognitively Normal', "Alzheimer's Disease"]
 
         st.markdown("<h1 style='text-align: center;'>Brain Age:</h1>", unsafe_allow_html=True)
         st.markdown(f"<h2 style='text-align: center;'>{outputs}</h2>", unsafe_allow_html=True)
         st.markdown("<h1 style='text-align: center;'>Brain Condition:</h1>", unsafe_allow_html=True)
         st.markdown(f"<h2 style='text-align: center;'>{dic[outputs_acc]}</h2>", unsafe_allow_html=True)
+
 
 
 with tab2:
