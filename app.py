@@ -23,7 +23,7 @@ def diffusion_map(correlation_matrix, n_components=3, sigma=1.2):
     return diffusion_map
 
 
-st.title('Diffusion Enchanced BC-GCN')
+st.title('Diffusion Map Enchanced BC-GCN')
 tab1, tab2 = st.tabs(["Prediction Model", "Nerual Map"])
 
 with tab1:
