@@ -25,7 +25,7 @@ def diffusion_map(correlation_matrix, n_components=3, sigma=1.2):
 
 
 st.title('Diffusion Map Enchanced BC-GCN')
-tab1, tab2 = st.tabs(["Prediction Model", "Nerual Map"])
+tab1, tab2 = st.tabs(["Prediction Model", "Neural Map"])
 
 with tab1:
     st.write("This uses the diffusion map enabled BC-GCN model to estimate and the base BC-GCN model to classify Alzheimer's Disease. Please note that the classification model isn't stable and the input must be a 112x112 corrolation matrix due to the preprocessing requiring external programs. **It is recommended that the example file be used.**")
