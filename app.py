@@ -2,19 +2,14 @@ import numpy as np
 import pandas as pd
 import onnxruntime as ort
 import streamlit as st
-<<<<<<< HEAD
 from sklearn.metrics import pairwise_distances
 from scipy.sparse.linalg import eigsh
-=======
-#import backend
->>>>>>> b462f19ada40b01b1d390db6afbe3443a2a9018b
 
 
 def diffusion_map(correlation_matrix, n_components=3, sigma=1.2):
     # Construct the affinity matrix directly from the correlation matrix
     affinity_matrix = np.exp(-pairwise_distances(correlation_matrix, metric='euclidean') ** 2 / (2. * sigma ** 2))
 
-<<<<<<< HEAD
     # Normalize the affinity matrix
     degree_matrix = np.diag(np.sum(affinity_matrix, axis=1))
     diffusion_operator = np.dot(np.linalg.inv(degree_matrix), affinity_matrix)
@@ -78,11 +73,3 @@ with tab2:
 
     # Display the HTML content in Streamlit
     st.components.v1.html(html_content, height=600)
-
-=======
-#output = backend.run(pickle_fil)
-
-
-#st.title(output.item())
-st.title("hello")
->>>>>>> b462f19ada40b01b1d390db6afbe3443a2a9018b
