@@ -1,7 +1,6 @@
-streamlit
-torch==2.4.0
 streamlit==1.30.0
 numpy>=1.22.0
 pandas==2.2.2
 scikit-learn
+onnxruntime
 scipy
