@@ -3,8 +3,4 @@ numpy>=1.22.0
 pandas==2.2.2
 scikit-learn
 onnxruntime
-<<<<<<< HEAD
 scipy
-=======
-scipy
->>>>>>> b462f19ada40b01b1d390db6afbe3443a2a9018b
