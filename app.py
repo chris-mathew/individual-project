@@ -64,7 +64,7 @@ with tab1:
         ort_session_acc = ort.InferenceSession("model_new_accuracy.onnx")
         input_feed_acc = {'input.1': input_data_acc}
         outputs_acc = ort_session_acc.run(None, input_feed_acc)
-        outputs_acc = indices = np.argmax(outputs_acc[0][0])
+        outputs_acc = np.argmax(outputs_acc[0][0])
 
 
         dic = ['Mild Cognitive Impairment', 'Cognitively Normal', "Alzheimer's Disease"]
