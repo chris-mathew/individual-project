@@ -35,7 +35,7 @@ with tab1:
 
     uploaded_file = st.file_uploader("Choose a file", type=["pkl"])
     checkbox_state = st.checkbox("Use Example File (Age: 75.9, State: AD, Subject ID (ADNI Dataset): 018_S_4733)")
-    st.download_button(label="Download Sample Data", data=pickle_file, file_name='test_data.pkl')
+    st.download_button(label="Download Sample Data", data=pickle_file, file_name='test_data.pkl',mime='application/octet-stream')
 
 
     if checkbox_state:
