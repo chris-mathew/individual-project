@@ -33,16 +33,21 @@ with tab1:
 
     pickle_file = "75.9.pkl"  #  pickle file
 
-    uploaded_file = st.file_uploader("Choose a file", type=["pkl"])
+    uploaded_file = st.file_uploader("Choose a file", type=["pkl","csv"])
     checkbox_state = st.checkbox("Use Example File (Age: 75.9, State: AD, Subject ID (ADNI Dataset): 018_S_4733)")
-    st.download_button(label="Download Sample Data", data=pickle_file, file_name='test_data.pkl',mime='application/octet-stream')
+    ef = pd.read_pickle(pickle_file)
+    csv = ef.to_csv(index=False)
+    st.download_button(label="Download Sample Data", data=csv, file_name='test_data.csv')
 
 
     if checkbox_state:
         uploaded_file = pickle_file
 
     if uploaded_file is not None:
-        df = pd.read_pickle(uploaded_file)
+        if uploaded_file.name.endswith('.csv'):
+            df = pd.read_csv(uploaded_file)
+        else:
+            df = pd.read_pickle(uploaded_file)
         data_np_old = df.to_numpy()
         data_np = diffusion_map(data_np_old)
 
