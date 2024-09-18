@@ -38,13 +38,16 @@ with tab1:
     ef = pd.read_pickle(pickle_file)
     csv = ef.to_csv(index=False)
     st.download_button(label="Download Sample Data", data=csv, file_name='test_data.csv')
-
+    is_checked = False
 
     if checkbox_state:
         uploaded_file = pickle_file
+        is_checked = True
 
     if uploaded_file is not None:
-        if uploaded_file.name.endswith('.csv'):
+        if is_checked:
+            df = pd.read_pickle(uploaded_file)
+        elif uploaded_file.name.endswith('.csv'):
             df = pd.read_csv(uploaded_file)
         else:
             df = pd.read_pickle(uploaded_file)
